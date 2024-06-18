@@ -242,4 +242,4 @@ For any issues, bugs, or feature requests, please [file an issue](https://github
 
 ## Repository
 
-Find this package on [npm](https://npmjs.com/nodeflip/nest-axios-http).
+Find this package on [npm](https://npmjs.com/@nodeflip/nest-axios-http).
