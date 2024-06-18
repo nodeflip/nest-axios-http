@@ -1,0 +1,70 @@
+{
+  "name": "@nodeflip/nest-axios-http",
+  "version": "1.0.0",
+  "description": "A NestJS module for simplified HTTP requests using Axios with dynamic configuration, logging, and interceptor support.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "dependencies": {
+    "@nestjs/axios": "^3.0.2",
+    "@nestjs/common": "^7.6.18",
+    "@nestjs/config": "^0.6.3",
+    "@nestjs/core": "^7.6.18",
+    "axios": "^1.7.2",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@nestjs/testing": "^7.6.18",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^14.14.31",
+    "axios-mock-adapter": "^1.22.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.1.5"
+  },
+  "keywords": [
+    "axios",
+    "nestjs-axios",
+    "nestjs",
+    "nestjs-http",
+    "nestjs-http-axios",
+    "nestjs-axios-http",
+    "nest-axios",
+    "nest",
+    "nest-http",
+    "nest-http-axios",
+    "nest-axios-http",
+    "nest-common",
+    "nest",
+    "typescript",
+    "module",
+    "config",
+    "nestjs http module",
+    "nestjs axios module",
+    "nestjs http axios module"
+  ],
+  "author": "Ashish Kumar",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "private": false,
+  "repository": "https://github.com/nodeflip/nest-axios-http",
+  "engines": {
+    "node": ">=16"
+  },
+  "homepage": "https://github.com/nodeflip/nest-axios-http#readme",
+  "bugs": {
+    "url": "https://github.com/nodeflip/nest-axios-http/issues"
+  }
+}
