@@ -156,7 +156,7 @@ const customLogger = new Logger('CustomLogger');
 @Module({
   imports: [
     HttpModule.forRoot({
-	  logger: customLogger, // Custom logger instance
+	    logger: customLogger, // Custom logger instance
       config: {
         baseURL: 'https://api.example.com',
         enableLogging: true,
@@ -189,9 +189,9 @@ import { HttpModule } from '@nodeflip/nest-axios-http';
   imports: [
     HttpModule.forFeature([
       {
-	    serviceName: "HTTP_SERVICE_2",
+	      serviceName: "HTTP_SERVICE_2",
         config: {
-		  baseURL: 'https://api.service1.com',
+		      baseURL: 'https://api.service1.com',
           enableLogging: true,
           onRequest: (config) => {
             // Optional: Customize request logging or modifications
@@ -208,9 +208,9 @@ import { HttpModule } from '@nodeflip/nest-axios-http';
         },
       },
       {
-		serviceName: "HTTP_SERVICE_2",
+		    serviceName: "HTTP_SERVICE_2",
         config: {
-		  baseURL: 'https://api.service2.com',
+		      baseURL: 'https://api.service2.com',
           enableLogging: true,
           onRequest: (config) => {
             // Optional: Customize request logging or modifications
