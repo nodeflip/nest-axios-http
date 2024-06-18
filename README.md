@@ -1,6 +1,6 @@
 ![test workflow](https://github.com/nodeflip/nest-axios-http/actions/workflows/test.yml/badge.svg)
-[![npm version](https://badge.fury.io/js/%40nodeflip%2Fnest-axios-http.svg)](https://badge.fury.io/js/%40nodeflip%2Fnestjs-axios-http)
-[![downloads](https://img.shields.io/npm/dm/@nodeflip/nest-axios-http.svg)](https://www.npmjs.com/package/@nodeflip/nestjs-axios-http)
+[![npm version](https://badge.fury.io/js/%40nodeflip%2Fnest-axios-http.svg)](https://badge.fury.io/js/%40nodeflip%2Fnest-axios-http)
+[![downloads](https://img.shields.io/npm/dm/@nodeflip/nest-axios-http.svg)](https://www.npmjs.com/package/@nodeflip/nest-axios-http)
 
 # @nodeflip/nest-axios-http
 
