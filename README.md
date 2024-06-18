@@ -147,18 +147,18 @@ export class AnotherService {
 You can customize logging and request/response interceptors by providing `logger` and `config` options during module initialization.
 
 ```typescript
-import { Logger } from '@nestjs/common';
-import { Module } from '@nestjs/common';
-import { HttpModule } from '@nodeflip/nest-axios-http';
+import { Logger } from "@nestjs/common";
+import { Module } from "@nestjs/common";
+import { HttpModule } from "@nodeflip/nest-axios-http";
 
-const customLogger = new Logger('CustomLogger');
+const customLogger = new Logger("CustomLogger");
 
 @Module({
   imports: [
     HttpModule.forRoot({
-	    logger: customLogger, // Custom logger instance
+      logger: customLogger, // Custom logger instance
       config: {
-        baseURL: 'https://api.example.com',
+        baseURL: "https://api.example.com",
         enableLogging: true,
         onRequest: (config) => {
           // Customize request logging or modifications
@@ -177,21 +177,22 @@ const customLogger = new Logger('CustomLogger');
   ],
 })
 export class AppModule {}
+
 ```
 ### Configuring Multiple HTTP Services
 
 You can configure multiple HTTP services using an array of options with forFeature.
 ```typescript
-import { Module } from '@nestjs/common';
-import { HttpModule } from '@nodeflip/nest-axios-http';
+import { Module } from "@nestjs/common";
+import { HttpModule } from "@nodeflip/nest-axios-http";
 
 @Module({
   imports: [
     HttpModule.forFeature([
       {
-	      serviceName: "HTTP_SERVICE_2",
+        serviceName: "HTTP_SERVICE_2",
         config: {
-		      baseURL: 'https://api.service1.com',
+          baseURL: "https://api.service1.com",
           enableLogging: true,
           onRequest: (config) => {
             // Optional: Customize request logging or modifications
@@ -208,9 +209,9 @@ import { HttpModule } from '@nodeflip/nest-axios-http';
         },
       },
       {
-		    serviceName: "HTTP_SERVICE_2",
+        serviceName: "HTTP_SERVICE_2",
         config: {
-		      baseURL: 'https://api.service2.com',
+          baseURL: "https://api.service2.com",
           enableLogging: true,
           onRequest: (config) => {
             // Optional: Customize request logging or modifications
