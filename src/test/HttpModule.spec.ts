@@ -1,4 +1,5 @@
 import { Test, TestingModule } from "@nestjs/testing";
+import { DynamicModule, FactoryProvider, ModuleMetadata } from "@nestjs/common";
 
 import { HttpModule } from "../http/http.module"; // Adjust the import path as necessary
 import { HttpService } from "../http/http.service";
@@ -61,5 +62,24 @@ describe("HttpModule", () => {
 
     expect(serviceOne).toBeInstanceOf(HttpService);
     expect(serviceTwo).toBeInstanceOf(HttpService);
+  });
+
+  it("should handle asynchronous dynamic configuration", async () => {
+    const asyncConfig = {
+      imports: [] as ModuleMetadata["imports"],
+      inject: [] as FactoryProvider["inject"],
+      useFactory: async () => ({
+        config: { baseURL: "http://async-config.com" },
+      }),
+      serviceName: "AsyncService",
+    };
+
+    const asyncModule = HttpModule.forFeatureAsync(asyncConfig);
+    const featureModule = await Test.createTestingModule({
+      imports: [asyncModule],
+    }).compile();
+    const asyncHttpService = featureModule.get<HttpService>("AsyncService");
+
+    expect(asyncHttpService).toBeInstanceOf(HttpService);
   });
 });

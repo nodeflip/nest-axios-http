@@ -1,6 +1,6 @@
 {
   "name": "@nodeflip/nest-axios-http",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A NestJS module for simplified HTTP requests using Axios with dynamic configuration, logging, and interceptor support.",
   "main": "dist/index.js",
   "scripts": {

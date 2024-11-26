@@ -1,4 +1,10 @@
-import { DynamicModule, Module, Provider } from "@nestjs/common";
+import {
+  DynamicModule,
+  FactoryProvider,
+  Module,
+  ModuleMetadata,
+  Provider,
+} from "@nestjs/common";
 import { HttpModule as NestHttpModule } from "@nestjs/axios";
 
 import { HttpService } from "./http.service";
@@ -81,6 +87,40 @@ export class HttpModule {
         exports: [providerName, HttpModule],
       },
       provider,
+    };
+  }
+
+  static forFeatureAsync(options: {
+    serviceName: string;
+    imports?: ModuleMetadata["imports"];
+    inject?: FactoryProvider["inject"];
+    useFactory: (
+      ...args: any[]
+    ) =>
+      | Promise<Omit<IHttpModuleOptions, "serviceName">>
+      | Omit<IHttpModuleOptions, "serviceName">;
+  }): DynamicModule {
+    const {
+      serviceName = "HttpService",
+      imports,
+      inject,
+      useFactory,
+    } = options;
+
+    const provider = {
+      provide: serviceName,
+      useFactory: async (...args: any[]) => {
+        const config = await useFactory(...args);
+        return new HttpService(config);
+      },
+      inject: inject || [],
+    };
+
+    return {
+      module: HttpModule,
+      imports: imports || [],
+      providers: [provider],
+      exports: [provider],
     };
   }
 }
