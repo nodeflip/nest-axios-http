@@ -233,6 +233,31 @@ import { HttpModule } from "@nodeflip/nest-axios-http";
 export class AppModule {}
 
 ```
+
+### Inject other modules and use it
+
+```typescript
+
+import { Module } from "@nestjs/common";
+import { HttpModule } from "@nodeflip/nest-axios-http";
+
+@Module({
+  imports: [
+    HttpModule.forFeatureAsync({
+      logger: customLogger, // Custom logger instance
+      serviceName: 'MyService', // Service name for logging
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => {
+        return {
+          baseURL: configService.get('API_BASE_URL'),
+          enableLogging: configService.get('ENABLE_LOGGING'),
+        }
+      }
+    }),
+  ],
+})
+
+```
 ## License
 
 This package is [MIT licensed](LICENSE).
